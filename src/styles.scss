@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+// Colors
+$dark-mode-elements: hsl(209, 23%, 22%);
+$dark-mode-background: hsl(207, 26%, 17%);
+$light-mode-text: hsl(200, 15%, 8%);
+$light-mode-input: hsl(0, 0%, 52%);
+$light-mode-background: hsl(0, 0%, 98%);
+$dark-mode-text: hsl(0, 0%, 100%);
+$light-mode-elements: hsl(0, 0%, 100%);
+
+// Fonts sizes
+
+$font-primary: 16px;
+$font-secondary: 14px;
+
+// Weights: 300, 600, 800
+
+$w-300: font-weight 300;
+$w-600: font-weight 600;
+$w-800: font-weight 800;
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}

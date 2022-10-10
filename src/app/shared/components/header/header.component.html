@@ -1,0 +1,16 @@
+<header class="bg-slate-50 text-black dark:bg-slate-700 dark:text-white">
+  <div
+    class="container m-auto flex flex-row flex-wrap justify-between items-center p-5"
+  >
+    <h1 class="text-lg font-semibold">Where in the world?</h1>
+    <div>
+      <span *ngIf="isDarkMode" class="cursor-pointer" (click)="darkMode(false)"
+        ><i class="fa-solid fa-moon"></i
+      ></span>
+      <span *ngIf="!isDarkMode" class="cursor-pointer" (click)="darkMode(true)"
+        ><i class="fa-regular fa-moon"></i
+      ></span>
+      <span class="ml-4">Dark Mode</span>
+    </div>
+  </div>
+</header>
