@@ -14,7 +14,7 @@ import { DarkModeService } from './shared/services/dark-mode.service';
 })
 export class AppComponent implements AfterViewInit {
   title = 'app-rest-countries';
-  @ViewChild('darkMode') darkMode!: ElementRef;
+  @ViewChild('darkMode') dm!: ElementRef;
 
   constructor(
     private darkModeService: DarkModeService,
@@ -23,11 +23,25 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.darkModeService.darkMode$.subscribe((darkMode) => {
+      this.renderer.addClass(this.dm.nativeElement, 'h-full');
+
       if (darkMode) {
-        this.renderer.addClass(this.darkMode.nativeElement, 'dark');
+        this.darkMode();
       } else {
-        this.renderer.removeClass(this.darkMode.nativeElement, 'dark');
+        this.lightMode();
       }
     });
+  }
+
+  private lightMode() {
+    this.renderer.removeClass(this.dm.nativeElement, 'dark');
+    this.renderer.removeClass(this.dm.nativeElement, 'bg-slate-900');
+    this.renderer.addClass(this.dm.nativeElement, 'bg-slate-100');
+  }
+
+  private darkMode() {
+    this.renderer.addClass(this.dm.nativeElement, 'dark');
+    this.renderer.removeClass(this.dm.nativeElement, 'bg-slate-100');
+    this.renderer.addClass(this.dm.nativeElement, 'bg-slate-900');
   }
 }

@@ -1,0 +1,25 @@
+button {
+  border-radius: 0.25rem 0 0 0.25rem;
+  -webkit-border-radius: 0.25rem 0 0 0.25rem;
+  -moz-border-radius: 0.25rem 0 0 0.25rem;
+  -ms-border-radius: 0.25rem 0 0 0.25rem;
+  -o-border-radius: 0.25rem 0 0 0.25rem;
+}
+
+input {
+  border-radius: 0 0.25rem 0.25rem 0;
+  -webkit-border-radius: 0 0.25rem 0.25rem 0;
+  -moz-border-radius: 0 0.25rem 0.25rem 0;
+  -ms-border-radius: 0 0.25rem 0.25rem 0;
+  -o-border-radius: 0 0.25rem 0.25rem 0;
+}
+
+@media (min-width: 640px) {
+  button {
+    width: 36px;
+  }
+
+  input {
+    width: 400px;
+  }
+}
