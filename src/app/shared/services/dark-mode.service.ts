@@ -11,11 +11,11 @@ export class DarkModeService {
 
   constructor() {}
 
-  set darkMode(darkMode: boolean) {
+  public set darkMode(darkMode: boolean) {
     this.$darkMode.next(darkMode);
   }
 
-  get darkMode$(): Observable<boolean> {
+  public get darkMode$(): Observable<boolean> {
     return this.$darkMode.asObservable();
   }
 }

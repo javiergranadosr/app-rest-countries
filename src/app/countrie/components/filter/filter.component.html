@@ -2,9 +2,7 @@
   class="p-3 w-3/4 bg-white text-black dark:bg-slate-700 dark:text-slate-50 md:w-96 mt-5 rounded md:mt-0"
 >
   <option value="">Filter by Region</option>
-  <option value="">Africa</option>
-  <option value="">America</option>
-  <option value="">Asia</option>
-  <option value="">Europa</option>
-  <option value="">Oceania</option>
+  <option *ngFor="let region of regions" [value]="region.key">
+    {{ region.name }}
+  </option>
 </select>
