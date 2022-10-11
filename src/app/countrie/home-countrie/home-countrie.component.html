@@ -1,4 +1,26 @@
-<div class="sm:flex sm:flex-row sm:flex-wrap sm:item-center sm:justify-between">
+<div
+  class="sm:flex sm:flex-row sm:flex-wrap sm:item-center sm:justify-between mt-20"
+>
   <app-input-search></app-input-search>
   <app-filter></app-filter>
+  <ng-template #content>
+    <div
+      class="w-full flex flex-col justify-center items-center sm:flex-row sm:flex-wrap"
+    >
+      <app-card-country
+        [country]="country"
+        *ngFor="let country of countries"
+      ></app-card-country>
+    </div>
+  </ng-template>
+  <ng-template #notContent>
+    <app-empty-result class="w-full mt-10"></app-empty-result>
+  </ng-template>
+  <ng-container
+    *ngTemplateOutlet="countries.length > 0 ? content : notContent"
+  ></ng-container>
 </div>
+<ngx-loading
+  [show]="loading"
+  [config]="{ backdropBorderRadius: '3px' }"
+></ngx-loading>

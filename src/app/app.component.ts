@@ -1,9 +1,8 @@
+import { DOCUMENT } from '@angular/common';
 import {
   AfterViewInit,
   Component,
-  ElementRef,
-  Renderer2,
-  ViewChild,
+  Inject,
 } from '@angular/core';
 import { DarkModeService } from './shared/services/dark-mode.service';
 
@@ -14,17 +13,14 @@ import { DarkModeService } from './shared/services/dark-mode.service';
 })
 export class AppComponent implements AfterViewInit {
   title = 'app-rest-countries';
-  @ViewChild('darkMode') dm!: ElementRef;
 
   constructor(
     private darkModeService: DarkModeService,
-    private renderer: Renderer2
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
   ngAfterViewInit(): void {
     this.darkModeService.darkMode$.subscribe((darkMode) => {
-      this.renderer.addClass(this.dm.nativeElement, 'h-full');
-
       if (darkMode) {
         this.darkMode();
       } else {
@@ -34,14 +30,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   private lightMode() {
-    this.renderer.removeClass(this.dm.nativeElement, 'dark');
-    this.renderer.removeClass(this.dm.nativeElement, 'bg-slate-900');
-    this.renderer.addClass(this.dm.nativeElement, 'bg-slate-100');
+    this.document.body.classList.remove('dark');
+    this.document.body.classList.remove('bg-slate-900');
+    this.document.body.classList.add('bg-slate-100');
   }
 
   private darkMode() {
-    this.renderer.addClass(this.dm.nativeElement, 'dark');
-    this.renderer.removeClass(this.dm.nativeElement, 'bg-slate-100');
-    this.renderer.addClass(this.dm.nativeElement, 'bg-slate-900');
+    this.document.body.classList.add('dark');
+    this.document.body.classList.add('bg-slate-900');
+    this.document.body.classList.remove('bg-slate-100');
   }
 }

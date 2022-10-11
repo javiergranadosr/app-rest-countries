@@ -1,0 +1,21 @@
+<div
+  class="card w-64 bg-white text-black dark:bg-slate-700 dark:text-slate-50 mt-10 sm:mr-10 cursor-pointer shadow-lg"
+>
+  <img [src]="country.flags.png" alt="Image country" />
+  <div class="p-5">
+    <h1 class="text-lg font-extrabold mt-5 mb-5">
+      {{ country.name.common | titlecase }}
+    </h1>
+    <p class="text-base font-extrabold">
+      Population:
+      <span class="font-light text-sm">{{ country.population | number }}</span>
+    </p>
+    <p class="text-base font-extrabold">
+      Region:
+      <span class="font-light text-sm">{{ country.region | titlecase }}</span>
+    </p>
+    <p class="text-base font-extrabold">
+      Capital: <span class="font-light text-sm">{{country.capital}}</span>
+    </p>
+  </div>
+</div>
