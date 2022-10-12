@@ -54,5 +54,11 @@ export class DetailComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.detailSubscription.unsubscribe();
     this.nameCountry = '';
+    this.country = [];
+    this.nativeName = '';
+    this.currencies = '';
+    this.languages = '';
+    this.borders = [];
+    this.loading = false;
   }
 }
