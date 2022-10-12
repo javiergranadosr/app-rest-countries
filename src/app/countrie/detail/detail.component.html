@@ -1,0 +1,88 @@
+<div class="mt-20">
+  <app-button [hasIcon]="true" textButton="Back" [back]="true"></app-button>
+
+  <ng-template #result>
+    <div
+      class="w-full mt-20 flex flex-col justify-center text-black dark:text-slate-50 md:flex-row md:flex-wrap"
+    >
+      <img
+        [src]="country[0].flags.png"
+        alt="Image country"
+        class="w-64 block m-auto md:static md:m-0"
+      />
+
+      <div class="flex flex-wrap  text-center justify-center items-center md:text-left">
+        <div class="p-5  w-full md:w-1/2">
+          <h1 class="text-lg font-extrabold mt-5 mb-5">
+            {{ country[0].name.common | titlecase }}
+          </h1>
+          <p class="text-base font-extrabold">
+            Native Name:
+            <span class="font-light text-sm">{{ nativeName }}</span>
+          </p>
+
+          <p class="text-base font-extrabold">
+            Population:
+            <span class="font-light text-sm">{{
+              country[0].population | number
+            }}</span>
+          </p>
+          <p class="text-base font-extrabold">
+            Region:
+            <span class="font-light text-sm">{{
+              country[0].region | titlecase
+            }}</span>
+          </p>
+          <p class="text-base font-extrabold">
+            Sub Region:
+            <span class="font-light text-sm">{{
+              country[0].subregion | titlecase
+            }}</span>
+          </p>
+          <p class="text-base font-extrabold">
+            Capital:
+            <span class="font-light text-sm">{{ country[0].capital }}</span>
+          </p>
+        </div>
+        <div class="p-5 w-full md:w-1/2">
+          <p class="text-base font-extrabold">
+            Top Level Domain:
+            <span class="font-light text-sm">{{ country[0].tld }}</span>
+          </p>
+          <p class="text-base font-extrabold">
+            Currencies:
+            <span class="font-light text-sm">{{ currencies | titlecase }}</span>
+          </p>
+          <p class="text-base font-extrabold">
+            Languages:
+            <span class="font-light text-sm">{{ languages }}</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center md:w-full md:mt-20" *ngIf="borders">
+        <h2 class="text-lg font-extrabold mt-5 mb-5">Border Countries:</h2>
+        <app-button
+          *ngFor="let border of borders"
+          [textButton]="border"
+          [hasIcon]="false"
+          [back]="false"
+          class="m-2"
+        ></app-button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #empty>
+    <app-empty-result class="w-full"></app-empty-result>
+  </ng-template>
+
+  <ng-container
+    *ngTemplateOutlet="country.length > 0 ? result : empty"
+  ></ng-container>
+</div>
+<ngx-loading
+  [show]="loading"
+  [config]="{ backdropBorderRadius: '3px' }"
+></ngx-loading>
+

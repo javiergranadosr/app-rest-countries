@@ -48,14 +48,28 @@ export class CountryService {
   }
 
   public getCountriesByRegion(region: string): Observable<CountryResponse[]> {
-    return this.http.get<CountryResponse[]>(`${this.baseUrl}/region/${region}`).pipe(
-      map((data) => {
-        return data;
-      }),
-      catchError((err) => {
-        return of([]);
-      })
-    );
+    return this.http
+      .get<CountryResponse[]>(`${this.baseUrl}/region/${region}`)
+      .pipe(
+        map((data) => {
+          return data;
+        }),
+        catchError((err) => {
+          return of([]);
+        })
+      );
   }
 
+  public getCountryByName(name: string): Observable<CountryResponse[]> {
+    return this.http
+      .get<CountryResponse[]>(`${this.baseUrl}/name/${name.toLowerCase()}`)
+      .pipe(
+        map((data) => {
+          return data;
+        }),
+        catchError((err) => {
+          return of([]);
+        })
+      );
+  }
 }

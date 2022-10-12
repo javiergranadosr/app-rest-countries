@@ -10,6 +10,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { CardCountryComponent } from './components/card-country/card-country.component';
 import { EmptyResultComponent } from './components/empty-result/empty-result.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailComponent } from './detail/detail.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilterComponent,
     CardCountryComponent,
     EmptyResultComponent,
+    DetailComponent,
+    ButtonComponent,
   ],
   imports: [
     CommonModule,
