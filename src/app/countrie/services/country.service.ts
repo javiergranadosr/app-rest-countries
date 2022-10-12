@@ -46,4 +46,16 @@ export class CountryService {
       })
     );
   }
+
+  public getCountriesByRegion(region: string): Observable<CountryResponse[]> {
+    return this.http.get<CountryResponse[]>(`${this.baseUrl}/region/${region}`).pipe(
+      map((data) => {
+        return data;
+      }),
+      catchError((err) => {
+        return of([]);
+      })
+    );
+  }
+
 }

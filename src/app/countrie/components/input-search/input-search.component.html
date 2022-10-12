@@ -1,5 +1,6 @@
 <button
   class="w-3/12 p-3 bg-white text-black dark:bg-slate-700 dark:text-white rounded"
+  (click)="search()"
 >
   <i class="fa-solid fa-magnifying-glass"></i>
 </button>
@@ -7,4 +8,5 @@
   type="text"
   placeholder="Search for a country"
   class="p-3 w-3/4 bg-white text-black dark:bg-slate-700 dark:text-slate-50"
+  [formControl]="nameCountry"
 />

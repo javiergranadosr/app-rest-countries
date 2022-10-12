@@ -9,6 +9,7 @@ import { InputSearchComponent } from './components/input-search/input-search.com
 import { FilterComponent } from './components/filter/filter.component';
 import { CardCountryComponent } from './components/card-country/card-country.component';
 import { EmptyResultComponent } from './components/empty-result/empty-result.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EmptyResultComponent } from './components/empty-result/empty-result.com
     CommonModule,
     CountrieRoutingModule,
     NgxLoadingModule.forRoot({}),
+    ReactiveFormsModule
   ],
 })
 export class CountrieModule {}
