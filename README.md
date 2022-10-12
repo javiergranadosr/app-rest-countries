@@ -7,5 +7,5 @@
 * Tailwind CSS
 
 ### API: https://restcountries.com/
-### Demo: https://jade-gnome-ffb8c9.netlify.app/countries
+### Demo: https://jade-gnome-ffb8c9.netlify.app
 
